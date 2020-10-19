@@ -1,0 +1,55 @@
+package com.cybertek.tests.day7_TypesOfElements;
+
+import com.cybertek.utilities.WebDriverFactory;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class DisabledElements {
+    @Test
+    public void test1() throws InterruptedException {
+        WebDriver driver= WebDriverFactory.getDriver("chrome");
+        driver.manage().window().maximize();
+        driver.get("http://practice.cybertekschool.com/radio_buttons");
+
+        //locating radio buttons
+
+        WebElement greenRadioBtn = driver.findElement(By.cssSelector("#green" ));
+        greenRadioBtn.click();
+
+        // how to check this enabled or NOT
+
+        Assert.assertFalse(greenRadioBtn.isEnabled(),"Verify that GreenButton is Disabled");
+        Thread.sleep(3000);
+        driver.quit();
+
+
+    }
+
+        @Test
+        public void test2(){
+
+            WebDriver driver= WebDriverFactory.getDriver("chrome");
+            driver.manage().window().maximize();
+            driver.get("http://practice.cybertekschool.com/dynamic_controls");
+
+            WebElement inputBox=driver.findElement(By.cssSelector("#input-example>input"));
+            inputBox.sendKeys("Some message");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}}
